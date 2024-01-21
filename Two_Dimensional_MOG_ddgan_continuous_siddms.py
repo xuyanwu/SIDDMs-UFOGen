@@ -32,24 +32,6 @@ def sample_from_model(generator, n_time, x_init):
                 break
     return x_new
 
-# def sample_from_model(generator, n_time, train_n_time, x_init, nz):
-#     x = x_init
-#     with torch.no_grad():
-#         for i in reversed(range(n_time)):
-#             t_p1 = torch.full((x.size(0),), i + 1, dtype=torch.float).to(x.device) / n_time
-#             t = torch.full((x.size(0),), i, dtype=torch.float).to(x.device) / n_time#t_p1 - 1/train_n_time
-#             latent_z = torch.randn(x.size(0), nz, device=x.device)
-#             x_0 = generator(x, t_p1, latent_z)
-#             if float(i+1) / float(n_time) - 1.0/float(train_n_time) > 0:
-#                 x = get_z_t_via_z_tp1(x_0, x, t, t_p1)
-#                 # t_p1 = torch.full((x.size(0),), i, dtype=torch.float).to(x.device) / n_time
-#                 # x, _, _ = get_z_tp1_via_z_t(t, t_p1, x)
-#                 x = x.detach()
-#             else:
-#                 x = x_0.detach()
-#                 break
-#     return x
-
 def plot_y_givenx(x,y,distirbution):
     link = x.mean(dim=1)
     label = y[np.logical_and(link.numpy() >= 2.9, link.numpy() <= 3.1)]
@@ -329,7 +311,6 @@ def multi_results(args):
 
                 x_0_predict = G(x_tp1, t_p1, torch.rand_like(x_tp1))
                 x_pos_sample = get_z_t_via_z_tp1(x_0_predict, x_tp1, t, t_p1)
-                # x_tp1_mean_fake, sigma = get_z_t_(x_0_predict, t_p1)
                 x_tp1_fake = get_z_tp1_via_z_t(t, t_p1, x_pos_sample)
 
                 x_tp1_mean_real, _ = get_z_t_(train_data, t_p1)
@@ -339,7 +320,6 @@ def multi_results(args):
                 G_loss = F.binary_cross_entropy(g_fake, torch.ones_like(g_fake))
 
                 error_condition = torch.square(x_tp1_fake - x_tp1).mean()
-                # error_condition = torch.square(get_mu_posterior(t, t_p1, train_data) - get_mu_posterior(t, t_p1, x_0_predict)).mean()
 
                 optg.zero_grad()
                 (G_loss+error_condition*args.ac_w).backward()
