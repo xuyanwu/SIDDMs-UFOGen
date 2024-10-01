@@ -1,5 +1,5 @@
 # This repo contains the officially unofficial impelementation for [UFOGen: You Forward Once Large Scale Text-to-Image Generation via Diffusion GANs
-](https://lisun-ai.github.io/](https://openaccess.thecvf.com/content/CVPR2024/papers/Xu_UFOGen_You_Forward_Once_Large_Scale_Text-to-Image_Generation_via_Diffusion_CVPR_2024_paper.pdf)
+](https://openaccess.thecvf.com/content/CVPR2024/papers/Xu_UFOGen_You_Forward_Once_Large_Scale_Text-to-Image_Generation_via_Diffusion_CVPR_2024_paper.pdf)
 
 ## In the folder of SIDDMs, there are the code for repoducing the simulation of 5x5 Mixture of Gaussian.
 
