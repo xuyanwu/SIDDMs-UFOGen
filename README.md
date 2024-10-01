@@ -10,6 +10,8 @@ to embedding the 256x256 imagenet with StableDiffusion Autoencoder. The [kaggle 
 
 Recommended hardware, 8xA100s with 80G mem.
 
+Once everything is ready, you can run the finetuning with the run.sh script in the UFO_DiT folder.
+
 If you found this repo useful, please cite the following papers.
 
 ## Citation
