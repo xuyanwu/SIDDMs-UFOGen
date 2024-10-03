@@ -7,8 +7,8 @@ In the folder of SIDDMs, there are the code for repoducing the simulation of 5x5
 
 ## UFOGen
 In the folder of UFO_DiT, it contains the initial try on the few-steps (4-steps) conditional Imagenet generation, where the Generator and the Discriminator will both be loaded from the pretrained checkpopint
-from the [fast-DiT repo](https://github.com/chuanyangjin/fast-DiT). Once your started finetuning, the model would generate some reasonbale results in 500 iterations. Please flow the steps to download the pretrained checkpoint for XL/2 and 256x256 resolution. Before running the UFOGen finetuning, you need
-to embedding the 256x256 imagenet with StableDiffusion Autoencoder. The [kaggle imagenet256x256](https://www.kaggle.com/datasets/dimensi0n/imagenet-256) is suggested. The running env is identical as fast-DiT.
+from the [fast-DiT repo](https://github.com/chuanyangjin/fast-DiT). Once your start finetuning, the model would generate some reasonbale results in 500 iterations. Please follow the steps to download the pretrained checkpoint for XL/2 and 256x256 resolution. Before running the UFOGen finetuning, you need
+to embed the 256x256 imagenet with StableDiffusion Autoencoder. The [kaggle imagenet256x256](https://www.kaggle.com/datasets/dimensi0n/imagenet-256) is suggested. The running env is identical as fast-DiT.
 
 Recommended hardware, 8xA100s with 80G mem.
 
